@@ -51,20 +51,12 @@ export default function Home() {
       <Head>
         <title>JLentz Consulting</title>
         <meta name="description" content="JLentz Consulting" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/JL-icon.png" />
       </Head>
 
       <FullPageText setAnchor={setAnchor} />
       <ContactForm />
       <Footer />
-
-      {/* <Header />
-      <Hero />
-      <CenterTextBlock text="With over a decade's worth of experience managing the finances of small businesses with multi-million dollar revenues, we are intimately aware of what matters to small business owners." />
-      <LeftSlideInBox text="We work one on one with you to assess your business's performance and to create a plan for the future to help your business achieve and exceed it's goals." />
-      <RightSlideInBox text="We are comfortable wearing many hats and can provide guidance in many facets of your business." />
-      <LeftSlideInBox text="With experience in all aspects of business including Accounting, Operations, Project Management, and Technology, we are generalists and proud of it." />
-      <ServicesList /> */}
     </Container>
   );
 }

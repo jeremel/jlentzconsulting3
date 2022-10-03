@@ -135,19 +135,21 @@ const Container = styled.section`
     .submitted {
       background: var(--darkerBlue);
       color: var(--lighterBlue);
-      width: 75%;
-      padding: 2rem;
+      /* width: 75%; */
+      padding: 2rem clamp(2rem, -0.6667rem + 11.8519vw, 10rem);
       display: grid;
       place-items: center;
       border-radius: 0.9rem;
 
       p {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-weight: 300;
+        text-align: center;
+        font-size: clamp(1.75rem, 1.3333rem + 1.8519vw, 3rem);
       }
 
       p:last-of-type {
-        margin-bottom: 1rem;
+        font-size: clamp(1.75rem, 1.5rem + 1.1111vw, 2.5rem);
       }
     }
   }
@@ -162,10 +164,6 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  // };
 
   const sendEmail = (formData, e) => {
     console.log(formData);
@@ -190,8 +188,8 @@ export default function ContactForm() {
     <Container id="contact">
       <div className="formText">
         <p>
-          Find out how we can help you bring order to your accounting systems
-          and processes
+          Reach out to see how we can help bring order to your accounting
+          systems and processes:
         </p>
       </div>
 
@@ -204,6 +202,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="name"
+                  aria-invalid={errors.name ? "true" : "false"}
                   placeholder="Name"
                   {...register("name", {
                     required: true,
@@ -212,15 +211,26 @@ export default function ContactForm() {
                     maxLength: 50,
                   })}
                 />
+                {errors.name && (
+                  <div style={{ color: "red", marginTop: "0.25rem" }}>
+                    *Field required
+                  </div>
+                )}
               </div>
               <div className="form-item">
                 <label htmlFor="company">Company:</label>
                 <input
                   type="text"
                   name="company"
+                  aria-invalid={errors.company ? "true" : "false"}
                   placeholder="Company"
                   {...register("company", { required: true, max: 50, min: 3 })}
                 />
+                {errors.company && (
+                  <div style={{ color: "red", marginTop: "0.25rem" }}>
+                    *Field required
+                  </div>
+                )}
               </div>
             </div>
             <div className="form-item-wrapper">
@@ -229,6 +239,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="email"
+                  aria-invalid={errors.email ? "true" : "false"}
                   placeholder="Email"
                   {...register("email", {
                     required: true,
@@ -237,12 +248,18 @@ export default function ContactForm() {
                     pattern: /^\S+@\S+$/i,
                   })}
                 />
+                {errors.email && (
+                  <div style={{ color: "red", marginTop: "0.25rem" }}>
+                    *Field required
+                  </div>
+                )}
               </div>
               <div className="form-item">
                 <label htmlFor="telephone">Phone:</label>
                 <input
                   type="tel"
                   name="phone"
+                  aria-invalid={errors.phone ? "true" : "false"}
                   placeholder="Phone"
                   {...register("phone", {
                     required: true,
@@ -250,6 +267,11 @@ export default function ContactForm() {
                     maxLength: 12,
                   })}
                 />
+                {errors.phone && (
+                  <div style={{ color: "red", marginTop: "0.25rem" }}>
+                    *Field required
+                  </div>
+                )}
               </div>
             </div>
             <div className="form-message-submit">
