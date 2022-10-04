@@ -10,7 +10,6 @@ const Container = styled.main`
 
   p {
     margin-bottom: 4rem;
-    /* font-size: clamp(2.5rem, 1.375rem + 5vw, 4rem); */
     font-size: clamp(2rem, 0.5rem + 6.6667vw, 4rem);
 
     span {
@@ -49,12 +48,11 @@ export default function FullPageText({ setAnchor }) {
       <p>
         We also provide{" "}
         <span>training for business owners and bookkeepers</span> so that they
-        are better informed when it comes to <span>inputting</span>,{" "}
-        <span>retrieving</span>, and <span>analyzing</span> their financial
-        data. We work one on one with you to determine what the best course of
-        action will be, and <span>we stick with you</span> to make sure that
-        these new processes continue to{" "}
-        <span>work for you in the long-term</span>.
+        are better informed when it comes to{" "}
+        <span>inputting, retrieving, and analyzing</span> their financial data.
+        We work one on one with you to determine what the best course of action
+        will be, and <span>we stick with you</span> to make sure that these new
+        processes continue to <span>work for you in the long-term</span>.
       </p>
       <p>
         <a href="#contact" onClick={() => setAnchor("#contact")}>

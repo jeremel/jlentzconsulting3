@@ -180,9 +180,9 @@ export default function ContactForm() {
     setFormSubmitted(true);
   };
 
-  {
-    errors && console.log(errors);
-  }
+  // {
+  //   errors && console.log(errors);
+  // }
 
   return (
     <Container id="contact">
