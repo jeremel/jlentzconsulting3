@@ -39,7 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--lighterBlue);
   font-family: Fenwick, sans-serif;
-  font-display: block;
+  font-display: swap;
 }
 /*
   6. Improve media defaults
