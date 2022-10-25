@@ -49,9 +49,10 @@ export default function FullPageText({ setAnchor }) {
         gsap.from(el, {
           autoAlpha: firstNode ? 1 : 0,
           opacity: firstNode ? 1 : 0,
-          y: firstNode ? 0 : 15,
-          duration: 1.5,
+          y: firstNode ? 0 : 25,
+          duration: 1,
           scrub: true,
+          ease: "power1",
           scrollTrigger: {
             trigger: el,
             start: "top 75%",

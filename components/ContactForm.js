@@ -170,9 +170,10 @@ export default function ContactForm() {
       gsap.from(ref.current, {
         autoAlpha: 0,
         opacity: 0,
-        y: 15,
-        duration: 1.5,
+        y: 25,
+        duration: 1,
         scrub: true,
+        ease: "power1",
         scrollTrigger: {
           trigger: ref.current,
           start: "top 85%",
