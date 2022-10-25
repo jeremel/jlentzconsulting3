@@ -1,4 +1,10 @@
+import { useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.main`
   min-height: 100vh;
@@ -11,6 +17,10 @@ const Container = styled.main`
   p {
     margin-bottom: 4rem;
     font-size: clamp(2rem, 0.5rem + 6.6667vw, 4rem);
+
+    &:hover {
+      cursor: default;
+    }
 
     span {
       color: var(--lighterBlue);
@@ -30,8 +40,33 @@ const Container = styled.main`
 `;
 
 export default function FullPageText({ setAnchor }) {
+  const comp = useRef(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.utils.toArray(comp.current.children).forEach((el, index) => {
+        let firstNode = index === 0;
+        gsap.from(el, {
+          autoAlpha: firstNode ? 1 : 0,
+          opacity: firstNode ? 1 : 0,
+          y: firstNode ? 0 : 15,
+          duration: 1.5,
+          scrub: true,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 75%",
+            toggleActions: "play none none none",
+            // markers: true,
+          },
+        });
+      });
+    }, comp);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <Container>
+    <Container ref={comp}>
       <p>
         <span>JLentz Consulting</span> provides your small business with
         solutions for <span>accounting systems and processes</span> that are{" "}
@@ -39,13 +74,13 @@ export default function FullPageText({ setAnchor }) {
         <span>trust the financial information</span> that you are looking at so
         that you are able to make <span>more informed decisions</span>.
       </p>
-      <p>
+      <p className="par">
         We work with you and your accountant or bookkeeper to{" "}
         <span>assess the systems</span> that you are using and{" "}
         <span>make any changes necessary</span> to{" "}
         <span>improve your workflow</span>.
       </p>
-      <p>
+      <p className="par">
         We also provide{" "}
         <span>training for business owners and bookkeepers</span> so that they
         are better informed when it comes to{" "}
@@ -54,7 +89,7 @@ export default function FullPageText({ setAnchor }) {
         will be, and <span>we stick with you</span> to make sure that these new
         processes continue to <span>work for you in the long-term</span>.
       </p>
-      <p>
+      <p className="par">
         <a href="#contact" onClick={() => setAnchor("#contact")}>
           Reach out today
         </a>{" "}

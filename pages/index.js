@@ -13,7 +13,9 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+`;
 
 export default function Home() {
   const [anchor, setAnchor] = useState(null);
@@ -44,6 +46,8 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
   }, [anchor]);
 
   return (

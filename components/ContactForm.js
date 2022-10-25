@@ -1,7 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
@@ -45,6 +48,7 @@ const Container = styled.section`
       label {
         margin: 0.5rem 0 1rem 0;
         font-size: clamp(1.5rem, 0.75rem + 3.3333vw, 2.5rem);
+        font-weight: 300;
 
         &:first-of-type {
           margin: 0 0 0.5rem 0;
@@ -159,6 +163,28 @@ export default function ContactForm() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const form = useRef(null);
 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.from(ref.current, {
+        autoAlpha: 0,
+        opacity: 0,
+        y: 15,
+        duration: 1.5,
+        scrub: true,
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          // markers: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -186,8 +212,8 @@ export default function ContactForm() {
 
   return (
     <Container id="contact">
-      <div className="formText">
-        <p>
+      <div className="formText" ref={ref}>
+        <p className="text">
           Reach out to see how we can help bring order to your accounting
           systems and processes:
         </p>
