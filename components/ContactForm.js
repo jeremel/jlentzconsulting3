@@ -25,8 +25,7 @@ const Container = styled.section`
 
   .formText {
     p {
-      /* margin-bottom: 4rem; */
-      /* font-size: clamp(2.5rem, 1.375rem + 5vw, 4rem); */
+      margin-bottom: 1rem;
       font-size: clamp(2rem, 0.5rem + 6.6667vw, 4rem);
     }
   }

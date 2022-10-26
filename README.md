@@ -2,4 +2,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## JLentz Consulting
 
-Version 3. Now updated with fancy typography (Fenwick!) and smooth scrolling utilizing Lenis - [https://github.com/studio-freight/lenis](https://github.com/studio-freight/lenis). Email form was made with React Hook Form for validation and EmailJS for processing.
+Version 3. Now updated with fancy typography (Fenwick!) and smooth scrolling utilizing Lenis - [https://github.com/studio-freight/lenis](https://github.com/studio-freight/lenis). Email form was made with React Hook Form for validation and EmailJS for processing. Fade-in animations done with GSAP.

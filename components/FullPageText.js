@@ -15,7 +15,7 @@ const Container = styled.main`
   padding: 2rem clamp(1rem, -0.5rem + 6.6667vw, 3rem);
 
   p {
-    margin-bottom: 4rem;
+    margin-bottom: clamp(2.25rem, 1.6881rem + 2.5688vw, 4rem);
     font-size: clamp(2rem, 0.5rem + 6.6667vw, 4rem);
 
     &:hover {
@@ -55,7 +55,7 @@ export default function FullPageText({ setAnchor }) {
           ease: "power1",
           scrollTrigger: {
             trigger: el,
-            start: "top 75%",
+            start: "top 70%",
             toggleActions: "play none none none",
             // markers: true,
           },
