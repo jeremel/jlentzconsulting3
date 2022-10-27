@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 
 import { gsap } from "gsap";
@@ -51,6 +51,7 @@ export default function FullPageText({ setAnchor }) {
           opacity: firstNode ? 1 : 0,
           y: firstNode ? 0 : 25,
           duration: 1,
+          delay: 0.5,
           scrub: true,
           ease: "power1",
           scrollTrigger: {

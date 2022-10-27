@@ -32,7 +32,7 @@ const Container = styled.footer`
     font-size: clamp(1rem, 0.6789rem + 1.4679vw, 2rem);
     color: var(--lighterBlue);
     margin: 2rem 0;
-    padding: 0;
+    padding: 0 0 0 0.5rem;
     text-underline-offset: 12px;
     text-decoration-skip-ink: none;
     text-decoration-color: var(--lightBlue);

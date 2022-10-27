@@ -171,6 +171,7 @@ export default function ContactForm() {
         opacity: 0,
         y: 25,
         duration: 1,
+        delay: 0.5,
         scrub: true,
         ease: "power1",
         scrollTrigger: {
