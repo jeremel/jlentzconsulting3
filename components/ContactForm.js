@@ -25,7 +25,7 @@ const Container = styled.section`
 
   .formText {
     p {
-      margin-bottom: 1rem;
+      margin: 4rem 0;
       font-size: clamp(2rem, 0.5rem + 6.6667vw, 4rem);
     }
   }
@@ -37,7 +37,7 @@ const Container = styled.section`
       width: 75vw;
       background: var(--darkerBlue);
       color: var(--lighterBlue);
-      padding: 1.5rem 1rem;
+      padding: 0rem 0.75rem 1.05rem;
       border-radius: 0.4rem;
 
       @media (max-width: 700px) {
@@ -55,9 +55,9 @@ const Container = styled.section`
       }
 
       input[type="text"],
-      input[type="tel"],
-      textarea {
+      input[type="tel"] {
         width: 100%;
+        min-height: 3.75rem;
         border: none;
         border-radius: 0.3rem;
         background: var(--white);
@@ -65,6 +65,7 @@ const Container = styled.section`
         font-size: clamp(1.5rem, 0.75rem + 3.3333vw, 2.5rem);
         padding: 0.25rem;
         font-weight: 300;
+        transition: all 0.15s linear;
 
         &::placeholder {
           color: var(--darkerBlue);
@@ -72,6 +73,11 @@ const Container = styled.section`
           font-weight: 300;
           margin: 2rem 0;
           padding-left: 0.25rem;
+        }
+
+        &:focus {
+          padding: 0.25rem;
+          font-size: 2rem;
         }
       }
 
@@ -81,6 +87,14 @@ const Container = styled.section`
         transition: all 0.15s linear;
         padding: 0 0.5rem;
         font-size: clamp(1.5rem, 0.75rem + 3.3333vw, 2.5rem);
+
+        &::placeholder {
+          color: var(--darkerBlue);
+          opacity: 0.4;
+          font-weight: 300;
+          margin: 2rem 0;
+          padding-left: 0.25rem;
+        }
 
         &:focus {
           font-size: 2rem;
@@ -170,8 +184,8 @@ export default function ContactForm() {
         autoAlpha: 0,
         opacity: 0,
         y: 25,
-        duration: 1,
-        delay: 0.5,
+        duration: 0.6,
+        delay: 0.25,
         scrub: true,
         ease: "power1",
         scrollTrigger: {
@@ -215,8 +229,8 @@ export default function ContactForm() {
     <Container id="contact">
       <div className="formText" ref={ref}>
         <p className="text">
-          Reach out to see how we can help bring order to your accounting
-          systems and processes:
+          Find out how we can help bring order to your accounting systems and
+          processes:
         </p>
       </div>
 

@@ -50,8 +50,8 @@ export default function FullPageText({ setAnchor }) {
           autoAlpha: firstNode ? 1 : 0,
           opacity: firstNode ? 1 : 0,
           y: firstNode ? 0 : 25,
-          duration: 1,
-          delay: 0.5,
+          duration: 0.6,
+          delay: 0.25,
           scrub: true,
           ease: "power1",
           scrollTrigger: {
