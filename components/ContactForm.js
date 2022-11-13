@@ -11,7 +11,7 @@ const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 
 const Container = styled.section`
-  min-height: 50vh;
+  min-height: 50%;
   width: 100%;
   background: var(--lighterBlue);
   color: var(--darkerBlue);

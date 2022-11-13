@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.main`
-  min-height: 100vh;
+  min-height: 100%;
   background: var(--darkerBlue);
   color: var(--lightBlue);
   font-weight: 300;
